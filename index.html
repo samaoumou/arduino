@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+    <head>
+        
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js'></script>
+        
+        <style>
+        
+            #sample {
+                background-color: red;
+                width: 300px;
+                height: 300px;
+            }
+        p{
+            font-size: 20px;
+            color: black;
+        }
+        </style>
+        
+    </head>
+    <body>
+        
+        <h1>Gestion Temp et hum</h1>
+
+        <div id="sample"></div>
+        
+        <script>
+            
+        var socket = io();
+
+        socket.on('data', function(data) {
+            
+            console.log(data);
+            let p1 = document.getElementById('data')
+            
+            p1.innerHTML = 'Humidity '+ data.humidite[12]+''+data.humidite[13]+' Temperature '+ data.temperature[14]+''+data.temperature[15]
+           // document.getElementById('sample').style.opacity = data+"%"; 
+           // document.getElementById('sample').appendChild(p1);
+            
+
+        });
+        
+        </script>
+      <p id="data"></p> 
+      
+       
+    </body>
+</html>
